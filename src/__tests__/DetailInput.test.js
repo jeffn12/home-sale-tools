@@ -29,9 +29,9 @@ describe('DetailInput view', () => {
     expect(inputElement).toBeInTheDocument();
   });
 
-  /*   test('has an input for other fees', () => {
+  test('has an input for other fees', () => {
     const { getByLabelText } = render(<DetailInput />);
     const inputElement = getByLabelText(/otherFees/i);
     expect(inputElement).toBeInTheDocument();
-  }); */
+  });
 });

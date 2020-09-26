@@ -7,6 +7,7 @@ const DetailInput = () => {
   const [commissionRate, setCommissionRate] = useState(0);
   const [transferTaxRate, setTransferTaxRate] = useState(0);
   const [attorneyFee, setAttorneyFee] = useState(0);
+  const [otherFees, setOtherFees] = useState(0);
   const handleAmountOwedChange = (e, value) => setAmountOwed(value);
   return (
     <Box m={2}>
@@ -32,6 +33,13 @@ const DetailInput = () => {
         value={attorneyFee}
         onChange={(e, value) => setAttorneyFee(value)}
         aria-label="attorneyFee"
+        max={5000}
+        step={0.01}
+      />
+      <Slider
+        value={otherFees}
+        onChange={(e, value) => setOtherFees(value)}
+        aria-label="otherFees"
         max={5000}
         step={0.01}
       />
