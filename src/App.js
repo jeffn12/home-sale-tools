@@ -11,13 +11,7 @@ function App() {
         Home Sale Cost Estimator
       </Typography>
       <DetailInput />
-      <Box
-        width={1}
-        style={{
-          position: 'absolute',
-          bottom: '10px',
-        }}
-      >
+      <Box width={1}>
         <Typography align="center" variant="subtitle1">
           DISCLAIMER:
         </Typography>
