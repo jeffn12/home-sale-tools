@@ -1,4 +1,4 @@
-# Home Seller Tool
+# Home Seller Tool [![Build Status](https://travis-ci.com/jeffn12/home-sale-tools.svg?branch=master)](https://travis-ci.com/jeffn12/home-sale-tools)
 
 Perform a quick earnings estimate for selling your house. Default rates assume that you are selling a home/property in New York.
 
