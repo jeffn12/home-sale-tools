@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Grid, Slider, Typography } from '@material-ui/core';
 
 const DetailInput = () => {
+  const [salePrice, setSalePrice] = useState(0);
   const [amountOwed, setAmountOwed] = useState(0);
   const [commissionRate, setCommissionRate] = useState(0);
   const [transferTaxRate, setTransferTaxRate] = useState(0);
@@ -12,18 +13,41 @@ const DetailInput = () => {
 
   useEffect(() => {
     setAmountEarned(
-      130000 -
-        (130000 * (commissionRate + transferTaxRate) +
+      salePrice -
+        (salePrice * (commissionRate + transferTaxRate) +
           attorneyFee +
           otherFees +
           amountOwed)
     );
-  }, [amountOwed, commissionRate, transferTaxRate, attorneyFee, otherFees]);
+  }, [
+    salePrice,
+    amountOwed,
+    commissionRate,
+    transferTaxRate,
+    attorneyFee,
+    otherFees,
+  ]);
 
   return (
     <Box m={2}>
       <Typography variant="h4">Give Me The Deets:</Typography>
       <Grid>
+        <Grid item style={{ display: 'flex' }}>
+          <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
+            Target Sale Price:
+          </Typography>
+          <Typography variant="caption" style={{ flexShrink: 1 }}>
+            ${salePrice}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Slider
+            value={salePrice}
+            onChange={(e, value) => setSalePrice(value)}
+            aria-label="salePrice"
+            max={500000}
+          />
+        </Grid>
         <Grid item style={{ display: 'flex' }}>
           <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
             Amount Owed:
@@ -115,7 +139,7 @@ const DetailInput = () => {
           />
         </Grid>
       </Grid>
-      <Typography>Estimate: {amountEarned}</Typography>
+      <Typography>Estimate: ${amountEarned}</Typography>
     </Box>
   );
 };
