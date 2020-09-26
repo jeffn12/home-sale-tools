@@ -3,14 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Box, Grid, Slider, Typography } from '@material-ui/core';
 
 const DetailInput = () => {
-  const [salePrice, setSalePrice] = useState(0);
+  const [salePrice, setSalePrice] = useState(75000);
   const [amountOwed, setAmountOwed] = useState(0);
-  const [commissionRate, setCommissionRate] = useState(0);
-  const [transferTaxRate, setTransferTaxRate] = useState(0);
-  const [attorneyFee, setAttorneyFee] = useState(0);
-  const [otherFees, setOtherFees] = useState(0);
+  const [commissionRate, setCommissionRate] = useState(0.06);
+  const [transferTaxRate, setTransferTaxRate] = useState(0.005);
+  const [attorneyFee, setAttorneyFee] = useState(1000);
+  const [otherFees, setOtherFees] = useState(500);
   const [amountEarned, setAmountEarned] = useState(0);
-  const [salePriceRange, setSalePriceRange] = useState([]);
 
   useEffect(() => {
     setAmountEarned(
@@ -28,20 +27,6 @@ const DetailInput = () => {
     attorneyFee,
     otherFees,
   ]);
-
-  useEffect(() => {
-    const range = 10000;
-    const dataPoints = [];
-    for (let i = salePrice - range; i <= salePrice + range; i += 500) {
-      if (i < 0 && i + 500 > 0) i.push(salePrice);
-      dataPoints.push(i);
-    }
-    setSalePriceRange(dataPoints);
-  }, [salePrice]);
-
-  useEffect(() => {
-    console.log('create a graph here');
-  }, [salePriceRange]);
 
   return (
     <Box m={2}>
