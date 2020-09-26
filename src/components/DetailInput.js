@@ -13,9 +13,12 @@ const DetailInput = () => {
     <Box m={2}>
       <Typography variant="h4">Give Me The Deets:</Typography>
       <Grid>
-        <Grid item>
-          <Typography variant="body2" gutterBottom>
+        <Grid item style={{ display: 'flex' }}>
+          <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
             Amount Owed:
+          </Typography>
+          <Typography variant="caption" style={{ flexShrink: 1 }}>
+            ${amountOwed}
           </Typography>
         </Grid>
         <Grid item>
@@ -24,14 +27,16 @@ const DetailInput = () => {
             onChange={(e, value) => setAmountOwed(value)}
             aria-label="amountOwed"
             max={500000}
-            step={0.01}
           />
         </Grid>
       </Grid>
       <Grid>
-        <Grid item>
-          <Typography variant="body2" gutterBottom>
+        <Grid item style={{ display: 'flex' }}>
+          <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
             Commission Rate (%):
+          </Typography>
+          <Typography variant="caption" style={{ flexShrink: 1 }}>
+            {commissionRate}%
           </Typography>
         </Grid>
         <Grid item>
@@ -43,9 +48,12 @@ const DetailInput = () => {
         </Grid>
       </Grid>
       <Grid>
-        <Grid item>
-          <Typography variant="body2" gutterBottom>
+        <Grid item style={{ display: 'flex' }}>
+          <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
             Transfer Tax Rate (%):
+          </Typography>
+          <Typography variant="caption" style={{ flexShrink: 1 }}>
+            {transferTaxRate}%
           </Typography>
         </Grid>
         <Grid item>
@@ -57,9 +65,12 @@ const DetailInput = () => {
         </Grid>
       </Grid>
       <Grid>
-        <Grid item>
-          <Typography variant="body2" gutterBottom>
+        <Grid item style={{ display: 'flex' }}>
+          <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
             Attorney Fee:
+          </Typography>
+          <Typography variant="caption" style={{ flexShrink: 1 }}>
+            ${attorneyFee}
           </Typography>
         </Grid>
         <Grid item>
@@ -68,14 +79,16 @@ const DetailInput = () => {
             onChange={(e, value) => setAttorneyFee(value)}
             aria-label="attorneyFee"
             max={5000}
-            step={0.01}
           />
         </Grid>
       </Grid>
       <Grid>
-        <Grid item>
-          <Typography variant="body2" gutterBottom>
+        <Grid item style={{ display: 'flex' }}>
+          <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
             Other Fees:
+          </Typography>
+          <Typography variant="caption" style={{ flexShrink: 1 }}>
+            ${otherFees}
           </Typography>
         </Grid>
         <Grid item>
@@ -84,8 +97,7 @@ const DetailInput = () => {
             onChange={(e, value) => setOtherFees(value)}
             aria-label="otherFees"
             max={5000}
-            step={0.01}
-          />{' '}
+          />
         </Grid>
       </Grid>
     </Box>
