@@ -10,6 +10,7 @@ const DetailInput = () => {
   const [attorneyFee, setAttorneyFee] = useState(0);
   const [otherFees, setOtherFees] = useState(0);
   const [amountEarned, setAmountEarned] = useState(0);
+  const [salePriceRange, setSalePriceRange] = useState([]);
 
   useEffect(() => {
     setAmountEarned(
@@ -27,6 +28,20 @@ const DetailInput = () => {
     attorneyFee,
     otherFees,
   ]);
+
+  useEffect(() => {
+    const range = 10000;
+    const dataPoints = [];
+    for (let i = salePrice - range; i <= salePrice + range; i += 500) {
+      if (i < 0 && i + 500 > 0) i.push(salePrice);
+      dataPoints.push(i);
+    }
+    setSalePriceRange(dataPoints);
+  }, [salePrice]);
+
+  useEffect(() => {
+    console.log('create a graph here');
+  }, [salePriceRange]);
 
   return (
     <Box m={2}>
