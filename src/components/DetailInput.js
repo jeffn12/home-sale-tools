@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // Material-UI
 import { Box, Grid, Slider, Typography } from '@material-ui/core';
 
@@ -8,6 +8,17 @@ const DetailInput = () => {
   const [transferTaxRate, setTransferTaxRate] = useState(0);
   const [attorneyFee, setAttorneyFee] = useState(0);
   const [otherFees, setOtherFees] = useState(0);
+  const [amountEarned, setAmountEarned] = useState(0);
+
+  useEffect(() => {
+    setAmountEarned(
+      130000 -
+        (130000 * (commissionRate + transferTaxRate) +
+          attorneyFee +
+          otherFees +
+          amountOwed)
+    );
+  }, [amountOwed, commissionRate, transferTaxRate, attorneyFee, otherFees]);
 
   return (
     <Box m={2}>
@@ -36,7 +47,7 @@ const DetailInput = () => {
             Commission Rate (%):
           </Typography>
           <Typography variant="caption" style={{ flexShrink: 1 }}>
-            {commissionRate}%
+            {Math.trunc(commissionRate * 100)}%
           </Typography>
         </Grid>
         <Grid item>
@@ -44,6 +55,8 @@ const DetailInput = () => {
             value={commissionRate}
             onChange={(e, value) => setCommissionRate(value)}
             aria-label="commissionRate"
+            max={1}
+            step={0.01}
           />
         </Grid>
       </Grid>
@@ -53,7 +66,7 @@ const DetailInput = () => {
             Transfer Tax Rate (%):
           </Typography>
           <Typography variant="caption" style={{ flexShrink: 1 }}>
-            {transferTaxRate}%
+            {Math.trunc(transferTaxRate * 100)}%
           </Typography>
         </Grid>
         <Grid item>
@@ -61,6 +74,8 @@ const DetailInput = () => {
             value={transferTaxRate}
             onChange={(e, value) => setTransferTaxRate(value)}
             aria-label="transferTaxRate"
+            max={1}
+            step={0.01}
           />
         </Grid>
       </Grid>
@@ -100,6 +115,7 @@ const DetailInput = () => {
           />
         </Grid>
       </Grid>
+      <Typography>Estimate: {amountEarned}</Typography>
     </Box>
   );
 };
