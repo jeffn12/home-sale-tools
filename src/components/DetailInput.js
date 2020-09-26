@@ -150,7 +150,7 @@ const DetailInput = () => {
         <Typography variant="body1">Gross Estimate: </Typography>
         <Typography
           align="center"
-          variant="h6"
+          variant="h4"
           style={{ color: amountEarned >= 0 ? 'green' : 'red' }}
         >
           {amountEarned.toLocaleString('en-US', {
