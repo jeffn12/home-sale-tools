@@ -13,7 +13,8 @@ const DetailInput = () => {
         value={amountOwed}
         onChange={handleAmountOwedChange}
         aria-label="amountOwed"
-        max={1000000}
+        max={500000}
+        step={0.01}
       />
       <Slider
         value={commissionRate}
