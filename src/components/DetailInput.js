@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // Material-UI
-import { Box, Slider, Typography } from '@material-ui/core';
+import { Box, Grid, Slider, Typography } from '@material-ui/core';
 
 const DetailInput = () => {
   const [amountOwed, setAmountOwed] = useState(0);
@@ -12,37 +12,82 @@ const DetailInput = () => {
   return (
     <Box m={2}>
       <Typography variant="h4">Give Me The Deets:</Typography>
-      <Slider
-        value={amountOwed}
-        onChange={(e, value) => setAmountOwed(value)}
-        aria-label="amountOwed"
-        max={500000}
-        step={0.01}
-      />
-      <Slider
-        value={commissionRate}
-        onChange={(e, value) => setCommissionRate(value)}
-        aria-label="commissionRate"
-      />
-      <Slider
-        value={transferTaxRate}
-        onChange={(e, value) => setTransferTaxRate(value)}
-        aria-label="transferTaxRate"
-      />
-      <Slider
-        value={attorneyFee}
-        onChange={(e, value) => setAttorneyFee(value)}
-        aria-label="attorneyFee"
-        max={5000}
-        step={0.01}
-      />
-      <Slider
-        value={otherFees}
-        onChange={(e, value) => setOtherFees(value)}
-        aria-label="otherFees"
-        max={5000}
-        step={0.01}
-      />
+      <Grid>
+        <Grid item>
+          <Typography variant="body2" gutterBottom>
+            Amount Owed:
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Slider
+            value={amountOwed}
+            onChange={(e, value) => setAmountOwed(value)}
+            aria-label="amountOwed"
+            max={500000}
+            step={0.01}
+          />
+        </Grid>
+      </Grid>
+      <Grid>
+        <Grid item>
+          <Typography variant="body2" gutterBottom>
+            Commission Rate (%):
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Slider
+            value={commissionRate}
+            onChange={(e, value) => setCommissionRate(value)}
+            aria-label="commissionRate"
+          />
+        </Grid>
+      </Grid>
+      <Grid>
+        <Grid item>
+          <Typography variant="body2" gutterBottom>
+            Transfer Tax Rate (%):
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Slider
+            value={transferTaxRate}
+            onChange={(e, value) => setTransferTaxRate(value)}
+            aria-label="transferTaxRate"
+          />
+        </Grid>
+      </Grid>
+      <Grid>
+        <Grid item>
+          <Typography variant="body2" gutterBottom>
+            Attorney Fee:
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Slider
+            value={attorneyFee}
+            onChange={(e, value) => setAttorneyFee(value)}
+            aria-label="attorneyFee"
+            max={5000}
+            step={0.01}
+          />
+        </Grid>
+      </Grid>
+      <Grid>
+        <Grid item>
+          <Typography variant="body2" gutterBottom>
+            Other Fees:
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Slider
+            value={otherFees}
+            onChange={(e, value) => setOtherFees(value)}
+            aria-label="otherFees"
+            max={5000}
+            step={0.01}
+          />{' '}
+        </Grid>
+      </Grid>
     </Box>
   );
 };
