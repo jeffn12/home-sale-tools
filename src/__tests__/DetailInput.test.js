@@ -17,17 +17,17 @@ describe('DetailInput view', () => {
     expect(inputElement).toBeInTheDocument();
   });
 
-  /*   test('has an input for transfer tax rate', () => {
+  test('has an input for transfer tax rate', () => {
     const { getByLabelText } = render(<DetailInput />);
     const inputElement = getByLabelText(/transferTaxRate/i);
     expect(inputElement).toBeInTheDocument();
-  }); */
+  });
 
-  /*   test('has an input for attorney fee', () => {
+  test('has an input for attorney fee', () => {
     const { getByLabelText } = render(<DetailInput />);
     const inputElement = getByLabelText(/attorneyFee/i);
     expect(inputElement).toBeInTheDocument();
-  }); */
+  });
 
   /*   test('has an input for other fees', () => {
     const { getByLabelText } = render(<DetailInput />);
