@@ -8,13 +8,13 @@ const DetailInput = () => {
   const [transferTaxRate, setTransferTaxRate] = useState(0);
   const [attorneyFee, setAttorneyFee] = useState(0);
   const [otherFees, setOtherFees] = useState(0);
-  const handleAmountOwedChange = (e, value) => setAmountOwed(value);
+
   return (
     <Box m={2}>
       <Typography variant="h4">Give Me The Deets:</Typography>
       <Slider
         value={amountOwed}
-        onChange={handleAmountOwedChange}
+        onChange={(e, value) => setAmountOwed(value)}
         aria-label="amountOwed"
         max={500000}
         step={0.01}
