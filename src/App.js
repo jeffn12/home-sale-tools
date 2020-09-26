@@ -1,6 +1,7 @@
 import React from 'react';
-// Views
-import { DetailInput } from './views';
+// Components
+import DetailInput from './components/DetailInput';
+
 function App() {
   return (
     <div className="App">
