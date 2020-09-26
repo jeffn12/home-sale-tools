@@ -144,8 +144,11 @@ const DetailInput = () => {
           />
         </Grid>
       </Grid>
-      <Typography>
-        Estimate:{' '}
+      <Typography
+        align="center"
+        variant="h3"
+        style={{ color: amountEarned >= 0 ? 'green' : 'red' }}
+      >
         {amountEarned.toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD',
