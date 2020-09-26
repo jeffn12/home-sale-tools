@@ -30,7 +30,6 @@ const DetailInput = () => {
 
   return (
     <Box m={2}>
-      <Typography variant="h4">Give Me The Deets:</Typography>
       <Grid>
         <Grid item style={{ display: 'flex' }}>
           <Typography variant="body2" gutterBottom style={{ flexGrow: 1 }}>
@@ -46,6 +45,7 @@ const DetailInput = () => {
             onChange={(e, value) => setSalePrice(value)}
             aria-label="salePrice"
             max={500000}
+            step={250}
           />
         </Grid>
         <Grid item style={{ display: 'flex' }}>
@@ -62,6 +62,7 @@ const DetailInput = () => {
             onChange={(e, value) => setAmountOwed(value)}
             aria-label="amountOwed"
             max={500000}
+            step={250}
           />
         </Grid>
       </Grid>
@@ -90,7 +91,10 @@ const DetailInput = () => {
             Transfer Tax Rate (%):
           </Typography>
           <Typography variant="caption" style={{ flexShrink: 1 }}>
-            {Math.trunc(transferTaxRate * 100)}%
+            {transferTaxRate % 10 === 0
+              ? transferTaxRate * 10
+              : (transferTaxRate * 10).toFixed(2)}
+            %
           </Typography>
         </Grid>
         <Grid item>
@@ -98,8 +102,8 @@ const DetailInput = () => {
             value={transferTaxRate}
             onChange={(e, value) => setTransferTaxRate(value)}
             aria-label="transferTaxRate"
-            max={1}
-            step={0.01}
+            max={0.2}
+            step={0.001}
           />
         </Grid>
       </Grid>
@@ -118,6 +122,7 @@ const DetailInput = () => {
             onChange={(e, value) => setAttorneyFee(value)}
             aria-label="attorneyFee"
             max={5000}
+            step={100}
           />
         </Grid>
       </Grid>
@@ -139,7 +144,13 @@ const DetailInput = () => {
           />
         </Grid>
       </Grid>
-      <Typography>Estimate: ${amountEarned}</Typography>
+      <Typography>
+        Estimate:{' '}
+        {amountEarned.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        })}
+      </Typography>
     </Box>
   );
 };
